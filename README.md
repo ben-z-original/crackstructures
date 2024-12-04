@@ -14,7 +14,7 @@ If you find our work helpful, kindly cite accordingly:
 The relevant components are:
 - **CrackStructures**: a dataset consisting of 15 (or 18, if you count the crackless) segments from five (or six) distinct real-world structures. Offered in the repo, you are currently inspecting.
 - **[CrackEnsembles](https://github.com/ben-z-original/crackensembles)**: a semi-synthetic dataset combining synthetic geometry with real-world crack images/texture.
-- **[nnU-CrackNet]()**: the image-level crack segmentation model, which is a slightly improved version of the [OmniCrack30k Model]().
+- **[OmniCrack30k Model](https://github.com/ben-z-original/omnicrack30k)**: the SOTA image-level crack segmentation model.
 - **[ENSTRECT](https://github.com/ben-z-original/enstrect)**: a framework of backprojecting image-level information onto a point cloud.
 
 ## CrackStructures
