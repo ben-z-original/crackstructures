@@ -14,20 +14,18 @@ If you find our work helpful, kindly cite accordingly:
 The relevant resources are:
 - **CrackStructures**: a dataset consisting of 15 (or 18, if you count the crackless) segments from five (or six) distinct real-world structures. Offered in the repo, you are currently inspecting.
 - **CrackEnsembles**: a semi-synthetic dataset combining synthetic geometry with real-world crack images/texture. Offered in the repo, you are currently inspecting.
-- **[OmniCrack30k Model](https://github.com/ben-z-original/omnicrack30k)**: the SOTA image-level crack segmentation model.
-- **[ENSTRECT](https://github.com/ben-z-original/enstrect)**: a framework of backprojecting image-level information onto a point cloud.
+- **[OmniCrack30k Model](https://github.com/ben-z-original/omnicrack30k)**: SOTA image-level crack segmentation model.
+- **[ENSTRECT](https://github.com/ben-z-original/enstrect)**: framework of projecting image-level information onto a point cloud.
 
 ## CrackStructures
 CrackStructures is a dataset of real-world structures for structural crack and damage inspection.
-
-### Overview
 The dataset consists of 18 segments, three from each of six distinct structures. The segments from Bridge G only features spalling and corrosion (no cracks), but — due to the relation to structural inspection — are shipped with CrackStructures (see [ENSTRECT](https://github.com/ben-z-original/enstrect) for further detail).
 
 ![image](https://github.com/user-attachments/assets/4e8bcf4e-6cb5-45be-9228-5b7e53367b91)
 
-### Download
+<!--### Download
 The CrackStructures dataset can be downloaded from [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
-<!--
+
 - by running from the repository's root directory:
   ```bash
   pip install .
@@ -37,9 +35,6 @@ The CrackStructures dataset can be downloaded from [Google Drive](https://drive.
 
 ## CrackEnsembles
 CrackEnsembles is a semi-synthetic dataset combining synthetic geometry with real-world crack images/texture.
-
-
-### Overview
 ![sample](https://github.com/user-attachments/assets/bd44b1db-f6e2-4231-b3f4-8070b736e2fb)
 The dataset is procedurally created by
 1. Picking three geometric primitives (from a set of four primitives, cube, tetrahedron, cylinder, and sphere).
@@ -48,8 +43,10 @@ The dataset is procedurally created by
 4. Randomizing 32 extrinsics around the mesh and rendering views using the PyTorch3D mesh renderer.
 5. Inferring the ground truth medial axes of the cracks in 3D space by using point cloud contraction (for details see [ENSTRECT](https://github.com/ben-z-original/enstrect)).
 
-### Download
-The CrackEnsembles dataset can be downloaded from [Google Drive]()
+## Downloads
+The datasets can be downloaded from:
+- **CrackStructures**: [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
+- **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (Training and test sets are being processed and added soon).
 
 ## References
 ```
