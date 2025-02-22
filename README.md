@@ -17,16 +17,33 @@ The relevant resources are:
 - **[OmniCrack30k Model](https://github.com/ben-z-original/omnicrack30k)**: SOTA image-level crack segmentation model.
 - **[ENSTRECT](https://github.com/ben-z-original/enstrect)**: framework of projecting image-level information onto a point cloud.
 
-## Installation
+## Run Example
 
+### Installation
 ```
 # create and activate conda environment
 conda create --name crackstructures python=3.10
 conda activate crackstructures
 
 # install and build repository
-...
+pip install -e .
+pip install git+https://github.com/facebookresearch/pytorch3d.git@v0.7.7  # needs knowledge about installed torch version
 ```
+### Data Download and Organization
+The datasets can be downloaded from:
+- **CrackStructures**: [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
+- **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (Training and test sets are being processed and added soon).
+
+```
+└── crackstructures
+    ├── ...
+    └── src
+        └── crackstructures
+            ├── ...
+            └── assets
+                └── crackstructures  # <-here it goes (unzipped)
+```
+
 
 ## CrackStructures
 CrackStructures is a dataset of real-world structures for structural crack and damage inspection.
@@ -54,10 +71,7 @@ The dataset is procedurally created by
 4. Randomizing 32 extrinsics around the mesh and rendering views using the PyTorch3D mesh renderer.
 5. Inferring the ground truth medial axes of the cracks in 3D space by using point cloud contraction (for details see [ENSTRECT](https://github.com/ben-z-original/enstrect)).
 
-## Downloads
-The datasets can be downloaded from:
-- **CrackStructures**: [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
-- **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (Training and test sets are being processed and added soon).
+
 
 ## References
 ```
