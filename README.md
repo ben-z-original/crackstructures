@@ -17,6 +17,17 @@ The relevant resources are:
 - **[OmniCrack30k Model](https://github.com/ben-z-original/omnicrack30k)**: SOTA image-level crack segmentation model.
 - **[ENSTRECT](https://github.com/ben-z-original/enstrect)**: framework of projecting image-level information onto a point cloud.
 
+## Installation
+
+```
+# create and activate conda environment
+conda create --name crackstructures python=3.10
+conda activate crackstructures
+
+# install and build repository
+...
+```
+
 ## CrackStructures
 CrackStructures is a dataset of real-world structures for structural crack and damage inspection.
 The dataset consists of 18 segments, three from each of six distinct structures. The segments from Bridge G only features spalling and corrosion (no cracks), but — due to the relation to structural inspection — are shipped with CrackStructures (see [ENSTRECT](https://github.com/ben-z-original/enstrect) for further detail).
