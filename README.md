@@ -12,10 +12,25 @@ If you find our work helpful, kindly cite accordingly:
 }
 ```
 The relevant resources are:
-- **CrackStructures**: a dataset consisting of 15 (or 18, if you count the crackless) segments from five (or six) distinct real-world structures. Offered in the repo, you are currently inspecting.
+- **CrackStructures**: a dataset consisting of 15 (resp. 18, if you count the crackless) segments from five (resp. six) distinct real-world structures. Offered in the repo, you are currently inspecting.
 - **CrackEnsembles**: a semi-synthetic dataset combining synthetic geometry with real-world crack images/texture. Offered in the repo, you are currently inspecting.
 - **[OmniCrack30k Model](https://github.com/ben-z-original/omnicrack30k)**: SOTA image-level crack segmentation model.
 - **[ENSTRECT](https://github.com/ben-z-original/enstrect)**: framework of projecting image-level information onto a point cloud.
+
+## Citation
+[Link to WACV'25 Paper](https://openaccess.thecvf.com/content/WACV2025/papers/Benz_CrackStructures_and_CrackEnsembles_The_Power_of_Multi-View_for_2.5D_Crack_WACV_2025_paper.pdf)
+
+If you find our work useful, kindly cite accordingly:
+```
+@InProceedings{Benz_2025_WACV,
+    author    = {Benz, Christian and Rodehorst, Volker},
+    title     = {CrackStructures and CrackEnsembles: The Power of Multi-View for 2.5D Crack Detection},
+    booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {February},
+    year      = {2025},
+    pages     = {5990-5999}
+}
+```
 
 ## Run Example
 
