@@ -2,15 +2,8 @@
 
 This repo contains the resources (and pointers to resources) related to our WACV'25 publication on 2.5D crack detection.
 
-If you find our work helpful, kindly cite accordingly:
-```
-@inproceedings{benz2025crackstructures,
-   author = {Christian Benz and Volker Rodehorst},
-   booktitle = {2025 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
-   title = {CrackStructures and CrackEnsembles: The Power of Multi-View for 2.5D Crack Detection},
-   year = {2025},
-}
-```
+
+
 The relevant resources are:
 - **CrackStructures**: a dataset consisting of 15 (resp. 18, if you count the crackless) segments from five (resp. six) distinct real-world structures. Offered in the repo, you are currently inspecting.
 - **CrackEnsembles**: a semi-synthetic dataset combining synthetic geometry with real-world crack images/texture. Offered in the repo, you are currently inspecting.
