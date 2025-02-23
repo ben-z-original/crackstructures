@@ -1,5 +1,9 @@
 # CrackStructures and CrackEnsembles: <br>The Power of Multi-View for 2.5D Crack Detection
 
+## ${\color{red}\textsf{Under Construction: Likely ready by Sat, March 1, 2025.}}$
+
+
+
 This repo contains the resources (and pointers to resources) related to our WACV'25 publication on 2.5D crack detection.
 
 
