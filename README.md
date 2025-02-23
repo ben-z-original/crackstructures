@@ -29,9 +29,9 @@ If you find our work useful, kindly cite accordingly:
 }
 ```
 
-## Run Example
 
-### Installation
+## Installation
+The repo can be installed by:
 ```
 # create and activate conda environment
 conda create --name crackstructures python=3.10
@@ -41,11 +41,21 @@ conda activate crackstructures
 pip install -e .
 pip install git+https://github.com/facebookresearch/pytorch3d.git@v0.7.7  # needs knowledge about installed torch version
 ```
-### Data Download and Organization
-The datasets can be downloaded from:
-- **CrackStructures**: [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
-- **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (Training and test sets are being processed and added soon).
+The PyTorch3D dependency can be itchy. Also refer to [ENSTRECT](https://github.com/ben-z-original/enstrect/tree/main?tab=readme-ov-file#pytorch3d-issues).
 
+## Data
+### Data Download
+The datasets can be downloaded:
+- by running (which places the dataset correctly in the repo tree)
+   - **CrackStructures**: ```python -m crackstructures.datasets.download crackstructures```
+   - **CrackEnsembles**: ```python -m crackstructures.datasets.download crackensembles```
+     
+- or manually (correct placement in repo tree required, see below).
+    - **CrackStructures**: [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
+    - **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (Training and test sets are being processed and added soon).
+
+### Data Organisation
+For running the example, it must be corretly placed in the assets folder in the repository tree:
 ```
 └── crackstructures
     ├── ...
@@ -55,6 +65,54 @@ The datasets can be downloaded from:
             └── assets
                 └── crackstructures  # <-here it goes (unzipped)
 ```
+
+### Camera Representation
+For the (custom, but straightforward) camera representation, kindly refer to [Camera Representation in ENSTRECT](https://github.com/ben-z-original/enstrect/tree/main?tab=readme-ov-file#custom-data).
+
+## Run Example
+With the data placed in the right path, the example can be run. It uses image scale 0.25 for reduced runtime; for better quality change the ```--scale``` parameter to 1.0. For the default parameters run:
+```
+python -m crackstructures.run
+```
+With custom parameters run e.g. (from the repo's root path):
+```
+python -m crackstructures.run \
+    --obj_or_ply_path src/crackstructures/assets/crackstructures/indoors/segment3/mesh/mesh.obj \
+    --images_dir src/crackstructures/assets/crackstructures/indoors/segment3/views \
+    --cameras_path src/crackstructures/assets/crackstructures/indoors/segment3/cameras.json \
+    --out_dir src/crackstructures/assets/crackstructures/indoors/segment3/out \
+    --scale 0.5 \
+    --num_points 1000000
+```
+
+## Evaluation
+The evaluation assumed the following directory structure:
+```
+segment3
+├── annotations
+│   └── crack.obj                  # <- manually labeled cracks (with CloudCompare "Trace Polyline" function and converted to obj)
+├── cameras.json                   # <- camera information in custom format (see above)
+├── mesh
+│   ├── ...
+│   └── mesh.obj                   # <- obj with texture
+├── out
+│   ├── crack.obj                  # <- obj with predicted cracks
+│   └── pcd_1000000_processed.ply  # <- segmented point cloud (see, e.g., attributes "crack" or "argmax")
+└── views                          # <- the images
+    ├── 0000.jpg
+    ├── 0001.jpg
+    └── ...
+```
+
+Given this directory structure run:
+```
+python -m crackstructures.evaluation.run \
+    --datadir src/crackstructures/assets/crackstructures \
+    --structure indoors \
+    --segment segment3 \
+    --vis
+```
+
 
 
 ## CrackStructures
