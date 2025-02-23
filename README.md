@@ -54,7 +54,7 @@ The datasets can be downloaded:
     - **CrackStructures**: [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
     - **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (Training and test sets are being processed and added soon).
 
-### Data Organisation
+### Data Organization
 For running the example, it must be corretly placed in the assets folder in the repository tree:
 ```
 └── crackstructures
@@ -67,7 +67,7 @@ For running the example, it must be corretly placed in the assets folder in the 
 ```
 
 ### Camera Representation
-For the (custom, but straightforward) camera representation, kindly refer to [Camera Representation in ENSTRECT](https://github.com/ben-z-original/enstrect/tree/main?tab=readme-ov-file#custom-data).
+For the (custom, but straightforward) camera representation, kindly refer to [Camera Representation](https://github.com/ben-z-original/enstrect/tree/main?tab=readme-ov-file#custom-data) in ENSTRECT.
 
 ## Run Example
 With the data placed in the right path, the example can be run. It uses image scale 0.25 for reduced runtime; for better quality change the ```--scale``` parameter to 1.0. For the default parameters run:
@@ -138,7 +138,7 @@ The CrackStructures dataset can be downloaded from [Google Drive](https://drive.
 CrackEnsembles is a semi-synthetic dataset combining synthetic geometry with real-world crack images/texture.
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/bd44b1db-f6e2-4231-b3f4-8070b736e2fb" width=90% alt="CrackEnsembles">
+<img src="https://github.com/user-attachments/assets/bd44b1db-f6e2-4231-b3f4-8070b736e2fb" width=80% alt="CrackEnsembles">
 </p>
 
 The dataset is procedurally created by
