@@ -88,20 +88,21 @@ python -m crackstructures.run \
 ## Evaluation
 The evaluation assumed the following directory structure:
 ```
-segment3
-├── annotations
-│   └── crack.obj                  # <- manually labeled cracks (with CloudCompare "Trace Polyline" function and converted to obj)
-├── cameras.json                   # <- camera information in custom format (see above)
-├── mesh
-│   ├── ...
-│   └── mesh.obj                   # <- obj with texture
-├── out
-│   ├── crack.obj                  # <- obj with predicted cracks
-│   └── pcd_1000000_processed.ply  # <- segmented point cloud (see, e.g., attributes "crack" or "argmax")
-└── views                          # <- the images
-    ├── 0000.jpg
-    ├── 0001.jpg
-    └── ...
+indoors
+└── segment3
+    ├── annotations
+    │   └── crack.obj                  # <- manually labeled cracks (with CloudCompare "Trace Polyline" function and converted to obj)
+    ├── cameras.json                   # <- camera information in custom format (see above)
+    ├── mesh
+    │   ├── ...
+    │   └── mesh.obj                   # <- obj with texture
+    ├── out
+    │   ├── crack.obj                  # <- obj with predicted cracks
+    │   └── pcd_1000000_processed.ply  # <- segmented point cloud (see, e.g., attributes "crack" or "argmax")
+    └── views                          # <- the images
+        ├── 0000.jpg
+        ├── 0001.jpg
+        └── ...
 ```
 
 Given this directory structure run:
