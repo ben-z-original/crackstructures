@@ -2,7 +2,10 @@
 
 ## ${\color{red}\textsf{Under Construction: Likely ready by Sat, March 1, 2025.}}$
 
-
+<div align="center">
+<img src="https://github.com/user-attachments/assets/ad461027-aa39-47c9-b561-170569cc7d0c" width=40%> 
+<img src="https://github.com/user-attachments/assets/a6cf3236-f984-4c83-a73f-954cf712faaa" width=50%>
+</div>
 
 This repo contains the resources (and pointers to resources) related to our WACV'25 publication on 2.5D crack detection.
 
