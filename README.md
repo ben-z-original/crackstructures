@@ -1,15 +1,12 @@
 # CrackStructures and CrackEnsembles: <br>The Power of Multi-View for 2.5D Crack Detection
 
 ## ${\color{red}\textsf{Under Construction: Likely ready by Sat, March 1, 2025.}}$
-
-<div align="center">
-<img src="https://github.com/user-attachments/assets/ad461027-aa39-47c9-b561-170569cc7d0c" width=40%> 
-<img src="https://github.com/user-attachments/assets/a6cf3236-f984-4c83-a73f-954cf712faaa" width=50%>
-</div>
-
 This repo contains the resources (and pointers to resources) related to our WACV'25 publication on 2.5D crack detection.
 
-
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/ad461027-aa39-47c9-b561-170569cc7d0c" width=40% alt="Indoors segment"> 
+    <img src="https://github.com/user-attachments/assets/a6cf3236-f984-4c83-a73f-954cf712faaa" width=50% alt="Predictions">
+</p>
 
 The relevant resources are:
 - **CrackStructures**: a dataset consisting of 15 (resp. 18, if you count the crackless) segments from five (resp. six) distinct real-world structures. Offered in the repo, you are currently inspecting.
@@ -44,7 +41,7 @@ conda activate crackstructures
 pip install -e .
 pip install git+https://github.com/facebookresearch/pytorch3d.git@v0.7.7  # needs knowledge about installed torch version
 ```
-The PyTorch3D dependency can be itchy. Also refer to [ENSTRECT](https://github.com/ben-z-original/enstrect/tree/main?tab=readme-ov-file#pytorch3d-issues).
+The PyTorch3D dependency can be itchy. Also refer to [PyTorch3D Issues](https://github.com/ben-z-original/enstrect/tree/main?tab=readme-ov-file#pytorch3d-issues) in ENSTRECT.
 
 ## Data
 ### Data Download
@@ -116,14 +113,16 @@ python -m crackstructures.evaluation.run \
     --segment segment3 \
     --vis
 ```
-
+The clCloudIoUs corresponding to the tolerances will be provided in the terminal, an interactive plot is shown.
 
 
 ## CrackStructures
 CrackStructures is a dataset of real-world structures for structural crack and damage inspection.
 The dataset consists of 18 segments, three from each of six distinct structures. The segments from Bridge G only features spalling and corrosion (no cracks), but — due to the relation to structural inspection — are shipped with CrackStructures (see [ENSTRECT](https://github.com/ben-z-original/enstrect) for further detail).
 
-![image](https://github.com/user-attachments/assets/4e8bcf4e-6cb5-45be-9228-5b7e53367b91)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/4e8bcf4e-6cb5-45be-9228-5b7e53367b91" width=50% alt="CrackStructures">
+</p>
 
 <!--### Download
 The CrackStructures dataset can be downloaded from [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
@@ -137,7 +136,11 @@ The CrackStructures dataset can be downloaded from [Google Drive](https://drive.
 
 ## CrackEnsembles
 CrackEnsembles is a semi-synthetic dataset combining synthetic geometry with real-world crack images/texture.
-![sample](https://github.com/user-attachments/assets/bd44b1db-f6e2-4231-b3f4-8070b736e2fb)
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/bd44b1db-f6e2-4231-b3f4-8070b736e2fb" width=90% alt="CrackEnsembles">
+</p>
+
 The dataset is procedurally created by
 1. Picking three geometric primitives (from a set of four primitives, cube, tetrahedron, cylinder, and sphere).
 2. Randomizing the position and scale of the single primitives and combining them into one mesh.
