@@ -81,7 +81,7 @@ python -m crackstructures.run \
     --images_dir src/crackstructures/assets/crackstructures/indoors/segment3/views \
     --cameras_path src/crackstructures/assets/crackstructures/indoors/segment3/cameras.json \
     --out_dir src/crackstructures/assets/crackstructures/indoors/segment3/out \
-    --scale 0.5 \
+    --scale 1.0 \
     --num_points 1000000
 ```
 
