@@ -9,8 +9,12 @@ warnings.filterwarnings("ignore", message="Detected old nnU-Net plans")  # warni
 
 
 def run_crackstructures(obj_or_ply_path, cameras_path, images_dir, out_dir, select_views, num_points, scale):
+
     run(obj_or_ply_path, cameras_path, images_dir, out_dir, select_views, num_points, scale,
-        model=OmniCrack30kModel, fuser=NaiveMaxFuser)
+        model=OmniCrack30kModel, fuser=NaiveMaxFuser,
+        eps_m=0.01, min_points=20,
+        min_samples_cluster=10,
+        init_contraction=100)
 
 
 if __name__ == "__main__":
