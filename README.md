@@ -1,12 +1,12 @@
 # CrackStructures and CrackEnsembles: <br>The Power of Multi-View for 2.5D Crack Detection
 
 ## ${\color{red}\textsf{Under Construction: Likely ready by Sat, March 1, 2025.}}$
-
-
-
 This repo contains the resources (and pointers to resources) related to our WACV'25 publication on 2.5D crack detection.
 
-
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/ad461027-aa39-47c9-b561-170569cc7d0c" width=40% alt="Indoors segment"> 
+    <img src="https://github.com/user-attachments/assets/a6cf3236-f984-4c83-a73f-954cf712faaa" width=50% alt="Predictions">
+</p>
 
 The relevant resources are:
 - **CrackStructures**: a dataset consisting of 15 (resp. 18, if you count the crackless) segments from five (resp. six) distinct real-world structures. Offered in the repo, you are currently inspecting.
@@ -29,9 +29,9 @@ If you find our work useful, kindly cite accordingly:
 }
 ```
 
-## Run Example
 
-### Installation
+## Installation
+The repo can be installed by:
 ```
 # create and activate conda environment
 conda create --name crackstructures python=3.10
@@ -41,11 +41,21 @@ conda activate crackstructures
 pip install -e .
 pip install git+https://github.com/facebookresearch/pytorch3d.git@v0.7.7  # needs knowledge about installed torch version
 ```
-### Data Download and Organization
-The datasets can be downloaded from:
-- **CrackStructures**: [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
-- **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (Training and test sets are being processed and added soon).
+The PyTorch3D dependency can be itchy. Also refer to [PyTorch3D Issues](https://github.com/ben-z-original/enstrect/tree/main?tab=readme-ov-file#pytorch3d-issues) in ENSTRECT.
 
+## Data
+### Data Download
+The datasets can be downloaded:
+- by running (which places the dataset correctly in the repo tree)
+   - **CrackStructures**: ```python -m crackstructures.datasets.download crackstructures```
+   - **CrackEnsembles**: ```python -m crackstructures.datasets.download crackensembles```
+     
+- or manually (correct placement in repo tree required, see below).
+    - **CrackStructures**: [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
+    - **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (Training and test sets are being processed and added soon).
+
+### Data Organization
+For running the example, it must be corretly placed in the assets folder in the repository tree:
 ```
 └── crackstructures
     ├── ...
@@ -56,12 +66,63 @@ The datasets can be downloaded from:
                 └── crackstructures  # <-here it goes (unzipped)
 ```
 
+### Camera Representation
+For the (custom, but straightforward) camera representation, kindly refer to [Camera Representation](https://github.com/ben-z-original/enstrect/tree/main?tab=readme-ov-file#custom-data) in ENSTRECT.
+
+## Run Example
+With the data placed in the right path, the example can be run. It uses image scale 0.25 for reduced runtime; for better quality change the ```--scale``` parameter to 1.0. For the default parameters run:
+```
+python -m crackstructures.run
+```
+With custom parameters run e.g. (from the repo's root path):
+```
+python -m crackstructures.run \
+    --obj_or_ply_path src/crackstructures/assets/crackstructures/indoors/segment3/mesh/mesh.obj \
+    --images_dir src/crackstructures/assets/crackstructures/indoors/segment3/views \
+    --cameras_path src/crackstructures/assets/crackstructures/indoors/segment3/cameras.json \
+    --out_dir src/crackstructures/assets/crackstructures/indoors/segment3/out \
+    --scale 0.5 \
+    --num_points 1000000
+```
+
+## Evaluation
+The evaluation assumed the following directory structure:
+```
+indoors
+└── segment3
+    ├── annotations
+    │   └── crack.obj                  # <- manually labeled cracks (with CloudCompare "Trace Polyline" function and converted to obj)
+    ├── cameras.json                   # <- camera information in custom format (see above)
+    ├── mesh
+    │   ├── ...
+    │   └── mesh.obj                   # <- obj with texture
+    ├── out
+    │   ├── crack.obj                  # <- obj with predicted cracks
+    │   └── pcd_1000000_processed.ply  # <- segmented point cloud (see, e.g., attributes "crack" or "argmax")
+    └── views                          # <- the images
+        ├── 0000.jpg
+        ├── 0001.jpg
+        └── ...
+```
+
+Given this directory structure run:
+```
+python -m crackstructures.evaluation.run \
+    --datadir src/crackstructures/assets/crackstructures \
+    --structure indoors \
+    --segment segment3 \
+    --vis
+```
+The clCloudIoUs corresponding to the tolerances will be provided in the terminal, an interactive plot is shown.
+
 
 ## CrackStructures
 CrackStructures is a dataset of real-world structures for structural crack and damage inspection.
 The dataset consists of 18 segments, three from each of six distinct structures. The segments from Bridge G only features spalling and corrosion (no cracks), but — due to the relation to structural inspection — are shipped with CrackStructures (see [ENSTRECT](https://github.com/ben-z-original/enstrect) for further detail).
 
-![image](https://github.com/user-attachments/assets/4e8bcf4e-6cb5-45be-9228-5b7e53367b91)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/4e8bcf4e-6cb5-45be-9228-5b7e53367b91" width=50% alt="CrackStructures">
+</p>
 
 <!--### Download
 The CrackStructures dataset can be downloaded from [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
@@ -75,7 +136,11 @@ The CrackStructures dataset can be downloaded from [Google Drive](https://drive.
 
 ## CrackEnsembles
 CrackEnsembles is a semi-synthetic dataset combining synthetic geometry with real-world crack images/texture.
-![sample](https://github.com/user-attachments/assets/bd44b1db-f6e2-4231-b3f4-8070b736e2fb)
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/bd44b1db-f6e2-4231-b3f4-8070b736e2fb" width=80% alt="CrackEnsembles">
+</p>
+
 The dataset is procedurally created by
 1. Picking three geometric primitives (from a set of four primitives, cube, tetrahedron, cylinder, and sphere).
 2. Randomizing the position and scale of the single primitives and combining them into one mesh.
