@@ -37,9 +37,7 @@ The repo can be installed by:
 conda create --name crackstructures python=3.10
 conda activate crackstructures
 
-# clone and install repository
-git clone https://github.com/ben-z-original/crackstructures.git
-cd crackstructures
+# install and build repository
 pip install -e .
 pip install git+https://github.com/facebookresearch/pytorch3d.git@v0.7.7  # needs knowledge about installed torch version
 ```
@@ -83,7 +81,7 @@ python -m crackstructures.run \
     --images_dir src/crackstructures/assets/crackstructures/indoors/segment3/views \
     --cameras_path src/crackstructures/assets/crackstructures/indoors/segment3/cameras.json \
     --out_dir src/crackstructures/assets/crackstructures/indoors/segment3/out \
-    --scale 0.5 \
+    --scale 1.0 \
     --num_points 1000000
 ```
 
@@ -114,6 +112,14 @@ python -m crackstructures.evaluation.run \
     --structure indoors \
     --segment segment3 \
     --vis
+
+# out:
+#   Tol      IoU
+#   0.005    0.627
+#   0.01     0.684
+#   0.02     0.721
+#   0.04     0.721
+#   0.08     0.815
 ```
 The clCloudIoUs corresponding to the tolerances will be provided in the terminal, an interactive plot is shown.
 
