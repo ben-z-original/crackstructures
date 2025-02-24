@@ -157,7 +157,7 @@ The dataset is procedurally created by
 4. Randomizing 32 extrinsics around the mesh and rendering views using the PyTorch3D mesh renderer.
 5. Inferring the ground truth medial axes of the cracks in 3D space by using point cloud contraction (for details see [ENSTRECT](https://github.com/ben-z-original/enstrect)).
 
-### Generate CrackEnsembles
+### Generation
 For generating, e.g., the validation set of CrackEnsembles from the [OmniCrack30k](https://github.com/ben-z-original/omnicrack30k) dataset run:
 ```
 python -m crackstructures.datasets.crackensembles \
@@ -169,6 +169,7 @@ python -m crackstructures.datasets.crackensembles \
   --filter_images \
   --create_gif
 ```
+(Note: ```export XDG_SESSION_TYPE=x11``` and ```export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6``` solved the GIF problem for me).
 
 
 ## References
