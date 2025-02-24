@@ -161,9 +161,9 @@ The dataset is procedurally created by
 For generating, e.g., the validation set of CrackEnsembles from the [OmniCrack30k](https://github.com/ben-z-original/omnicrack30k) dataset run:
 ```
 python -m crackstructures.datasets.crackensembles \
-  --images_dir /home/chrisbe/repos/omnicrack30k/assets/omnicrack30k/images/validation \
-  --centerlines_dir /home/chrisbe/repos/omnicrack30k/assets/omnicrack30k/centerlines/validation \
-  --out_dir ~/repos/crackstructures/src/crackstructures/assets/crackensembles \
+  --images_dir path_to_omnicrack30k/images/validation \
+  --centerlines_dir path_to_omnicrack30k/centerlines/validation \
+  --out_dir src/crackstructures/assets/crackensembles \
   --num_cameras 32 \
   --start_idx 1090 \
   --filter_images \
