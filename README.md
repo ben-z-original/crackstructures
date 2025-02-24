@@ -116,7 +116,7 @@ python -m crackstructures.evaluation.run \
     --vis
 ```
 The clCloudIoUs corresponding to the tolerances will be provided in the terminal, an interactive plot is shown.
-
+Note that ```export XDG_SESSION_TYPE=x11``` might be needed for wayland platforms, see this [post](https://github.com/isl-org/Open3D/issues/6872#issuecomment-2615797521).
 
 ## CrackStructures
 CrackStructures is a dataset of real-world structures for structural crack and damage inspection.
