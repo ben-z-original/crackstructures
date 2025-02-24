@@ -121,7 +121,7 @@ python -m crackstructures.evaluation.run \
 #   0.04     0.721
 #   0.08     0.815
 ```
-The clCloudIoUs corresponding to the tolerances will be provided in the terminal, an interactive plot is shown.
+The clCloudIoUs corresponding to the tolerances will be provided in the terminal, an interactive plot is shown. (Note: ```export XDG_SESSION_TYPE=x11``` and ```export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6``` solved the Open3D problem for me).
 
 
 ## CrackStructures
@@ -149,6 +149,7 @@ CrackEnsembles is a semi-synthetic dataset combining synthetic geometry with rea
 <img src="https://github.com/user-attachments/assets/bd44b1db-f6e2-4231-b3f4-8070b736e2fb" width=80% alt="CrackEnsembles">
 </p>
 
+### Procedure
 The dataset is procedurally created by
 1. Picking three geometric primitives (from a set of four primitives, cube, tetrahedron, cylinder, and sphere).
 2. Randomizing the position and scale of the single primitives and combining them into one mesh.
@@ -156,6 +157,18 @@ The dataset is procedurally created by
 4. Randomizing 32 extrinsics around the mesh and rendering views using the PyTorch3D mesh renderer.
 5. Inferring the ground truth medial axes of the cracks in 3D space by using point cloud contraction (for details see [ENSTRECT](https://github.com/ben-z-original/enstrect)).
 
+### Generate CrackEnsembles
+For generating, e.g., the validation set of CrackEnsembles from the [OmniCrack30k](https://github.com/ben-z-original/omnicrack30k) dataset run:
+```
+python -m crackstructures.datasets.crackensembles \
+  --images_dir /home/chrisbe/repos/omnicrack30k/assets/omnicrack30k/images/validation \
+  --centerlines_dir /home/chrisbe/repos/omnicrack30k/assets/omnicrack30k/centerlines/validation \
+  --out_dir ~/repos/crackstructures/src/crackstructures/assets/crackensembles \
+  --num_cameras 32 \
+  --start_idx 1090 \
+  --filter_images \
+  --create_gif
+```
 
 
 ## References
