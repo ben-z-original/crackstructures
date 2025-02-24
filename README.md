@@ -114,7 +114,7 @@ python -m crackstructures.evaluation.run \
     --vis
 
 # out:
-#   Tol 	 IoU
+#   Tol      IoU
 #   0.005    0.627
 #   0.01     0.684
 #   0.02     0.721
