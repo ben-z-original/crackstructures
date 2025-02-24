@@ -37,7 +37,9 @@ The repo can be installed by:
 conda create --name crackstructures python=3.10
 conda activate crackstructures
 
-# install and build repository
+# clone and install repository
+git clone https://github.com/ben-z-original/crackstructures.git
+cd crackstructures
 pip install -e .
 pip install git+https://github.com/facebookresearch/pytorch3d.git@v0.7.7  # needs knowledge about installed torch version
 ```
