@@ -37,9 +37,7 @@ The repo can be installed by:
 conda create --name crackstructures python=3.10
 conda activate crackstructures
 
-# clone and install repository
-git clone https://github.com/ben-z-original/crackstructures.git
-cd crackstructures
+# install and build repository
 pip install -e .
 pip install git+https://github.com/facebookresearch/pytorch3d.git@v0.7.7  # needs knowledge about installed torch version
 ```
@@ -114,9 +112,17 @@ python -m crackstructures.evaluation.run \
     --structure indoors \
     --segment segment3 \
     --vis
+
+# out:
+# Tol 	 IoU
+# 0.005  0.627
+# 0.01 	 0.684
+# 0.02 	 0.721
+# 0.04 	 0.721
+# 0.08 	 0.815
 ```
 The clCloudIoUs corresponding to the tolerances will be provided in the terminal, an interactive plot is shown.
-Note that ```export XDG_SESSION_TYPE=x11``` might be needed for wayland platforms, see this [post](https://github.com/isl-org/Open3D/issues/6872#issuecomment-2615797521).
+
 
 ## CrackStructures
 CrackStructures is a dataset of real-world structures for structural crack and damage inspection.
