@@ -1,6 +1,5 @@
 # CrackStructures and CrackEnsembles: <br>The Power of Multi-View for 2.5D Crack Detection
 
-## ${\color{red}\textsf{Under Construction: Likely ready by Sat, March 1, 2025.}}$
 This repo contains the resources (and pointers to resources) related to our WACV'25 publication on 2.5D crack detection.
 
 <p align="center">
@@ -52,7 +51,7 @@ The datasets can be downloaded:
      
 - or manually (correct placement in repo tree required, see below).
     - **CrackStructures**: [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
-    - **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (Training and test sets are being processed and added soon).
+    - **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (training set takes some processing time and will be added soon).
 
 ### Data Organization
 For running the example, it must be corretly placed in the assets folder in the repository tree:
