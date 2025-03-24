@@ -8,16 +8,15 @@ from crackstructures.mapping.fuser import NaiveMaxFuser
 warnings.filterwarnings("ignore", message="Detected old nnU-Net plans")  # warning can be ignored
 
 
-def run_crackstructures(obj_or_ply_path, cameras_path, images_dir, out_dir, select_views, num_points, scale):
-
+def run_crackstructures(obj_or_ply_path, cameras_path, images_dir, out_dir, model, select_views, num_points, scale):
     run(obj_or_ply_path, cameras_path, images_dir, out_dir, select_views, num_points, scale,
-        model=OmniCrack30kModel, fuser=NaiveMaxFuser,
+        model=model, fuser=NaiveMaxFuser,
         eps_m=0.01, min_points=20,
         min_samples_cluster=10,
         init_contraction=100)
 
 
-if __name__ == "__main__":
+def main(model=OmniCrack30kModel):
     parser = ArgumentParser(description="""Run enstrect for segmenting, mapping, and extracting structural cracks.""")
     parser.add_argument('-p', '--obj_or_ply_path', type=Path,
                         default=Path(__file__).parent / "assets" / "crackstructures" / "beam" /
@@ -44,4 +43,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     run_crackstructures(args.obj_or_ply_path, args.cameras_path, args.images_dir,
-                        args.out_dir, args.select_views, args.num_points, args.scale)
+                        args.out_dir, model, args.select_views, args.num_points, args.scale)
+
+
+if __name__ == "__main__":
+    main()
