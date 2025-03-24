@@ -1,6 +1,5 @@
 # CrackStructures and CrackEnsembles: <br>The Power of Multi-View for 2.5D Crack Detection
 
-## ${\color{red}\textsf{Under Construction: Likely ready by Sat, March 1, 2025.}}$
 This repo contains the resources (and pointers to resources) related to our WACV'25 publication on 2.5D crack detection.
 
 <p align="center">
@@ -52,7 +51,7 @@ The datasets can be downloaded:
      
 - or manually (correct placement in repo tree required, see below).
     - **CrackStructures**: [Google Drive](https://drive.google.com/file/d/1-zlLnlnHSvTrb69HQbATb7LrAAu4v5kc/view?usp=drive_link)
-    - **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (Training and test sets are being processed and added soon).
+    - **CrackEnsembles**: [Google Drive](https://drive.google.com/file/d/13_-0uF0inOyw4iemlpop-O0iISid0o8e/view?usp=sharing) (training set takes some processing time and will be added soon).
 
 ### Data Organization
 For running the example, it must be corretly placed in the assets folder in the repository tree:
@@ -121,7 +120,7 @@ python -m crackstructures.evaluation.run \
 #   0.04     0.721
 #   0.08     0.815
 ```
-The clCloudIoUs corresponding to the tolerances will be provided in the terminal, an interactive plot is shown.
+The clCloudIoUs corresponding to the tolerances will be provided in the terminal, an interactive plot is shown. (Note: ```export XDG_SESSION_TYPE=x11``` and ```export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6``` solved the Open3D problem for me).
 
 
 ## CrackStructures
@@ -149,6 +148,7 @@ CrackEnsembles is a semi-synthetic dataset combining synthetic geometry with rea
 <img src="https://github.com/user-attachments/assets/bd44b1db-f6e2-4231-b3f4-8070b736e2fb" width=80% alt="CrackEnsembles">
 </p>
 
+### Procedure
 The dataset is procedurally created by
 1. Picking three geometric primitives (from a set of four primitives, cube, tetrahedron, cylinder, and sphere).
 2. Randomizing the position and scale of the single primitives and combining them into one mesh.
@@ -156,6 +156,19 @@ The dataset is procedurally created by
 4. Randomizing 32 extrinsics around the mesh and rendering views using the PyTorch3D mesh renderer.
 5. Inferring the ground truth medial axes of the cracks in 3D space by using point cloud contraction (for details see [ENSTRECT](https://github.com/ben-z-original/enstrect)).
 
+### Generation
+For generating, e.g., the validation set of CrackEnsembles from the [OmniCrack30k](https://github.com/ben-z-original/omnicrack30k) dataset run:
+```
+python -m crackstructures.datasets.crackensembles \
+  --images_dir path_to_omnicrack30k/images/validation \
+  --centerlines_dir path_to_omnicrack30k/centerlines/validation \
+  --out_dir src/crackstructures/assets/crackensembles \
+  --num_cameras 32 \
+  --start_idx 1090 \
+  --filter_images \
+  --create_gif
+```
+(Note: ```export XDG_SESSION_TYPE=x11``` and ```export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6``` solved the GIF problem for me).
 
 
 ## References
