@@ -1,2 +1,2 @@
-omnicrack30k @ git+https://github.com/ben-z-original/omnicrack30k
-enstrect @ git+https://github.com/ben-z-original/enstrect
+omnicrack30k @ git+https://github.com/ben-z-original/omnicrack30k.git
+enstrect @ git+https://github.com/ben-z-original/enstrect.git
